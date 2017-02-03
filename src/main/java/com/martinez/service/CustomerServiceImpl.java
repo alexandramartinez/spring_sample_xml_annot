@@ -2,13 +2,17 @@ package com.martinez.service;
 
 import com.martinez.model.Customer;
 import com.martinez.repository.CustomerRepository;
-import com.martinez.repository.HibernateCustomerRepositoryImpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
-    private CustomerRepository customerRepository = new HibernateCustomerRepositoryImpl();
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @Override
     public List<Customer> findAll() {
